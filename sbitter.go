@@ -10,6 +10,7 @@ import (
 	"github.com/openwebengineering/sbitter/helpers"
 	"github.com/openwebengineering/sbitter/types"
 	"labix.org/v2/mgo"
+	"log"
 	"net/http"
 	"time"
 )
@@ -20,8 +21,8 @@ const (
 )
 
 var (
-	session = *mgo.Session
-	db = *mgo.Database
+	session *mgo.Session
+	db *mgo.Database
 	mux = pat.New()
 )
 
@@ -31,7 +32,7 @@ func init() {
 
 	session, err = mgo.Dial(MONGO_URLS)
 	if err != nil {
-		fmt.Fatalf("Error connecting to MongoDB '%s'", MONGO_URLS)
+		log.Fatalf("Error connecting to MongoDB '%s'", MONGO_URLS)
 	}
 	// session.SetMode(mgo.Monotonic, true)
 	session.SetMode(mgo.Strong, true) // Most similar to Postgres
