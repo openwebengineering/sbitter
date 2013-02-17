@@ -1,10 +1,11 @@
-# SBitter: Santa Barbara Twitter Clone
+# SBitter: Santa Barbara Makerspace Twitter Clone
 
-Demo app created to show off [OpenWeb](http://www.openweb.com)'s
-ability to build scalable web applications.
-
-Thank you to [Santa Barbara Makerspace](http://sbhackerspace.com) for
-creating this competition.
+Demo app created to show off
+[OpenWeb](http://www.openwebengineering.com)'s ability to build
+scalable web applications as part of
+[Santa Barbara Makerspace](http://sbhackerspace.com)'s
+[SBitter](https://github.com/sbhackerspace/sbhx-sbitter#sbitter)
+programming competition.
 
 
 ## Benchmark Summary
