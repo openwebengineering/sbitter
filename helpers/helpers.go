@@ -20,7 +20,8 @@ func SetDB(mgoDB *mgo.Database) {
 	users = db.C("users")
 }
 
-
+// UserFromRequest parses out the :username parameter from the
+// requested URL and passes it to UserFromUsername
 func UserFromRequest(r *http.Request) (*types.User, error) {
 	return UserFromUsername(r.URL.Query().Get(":username"))
 }

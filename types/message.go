@@ -13,10 +13,12 @@ type Message struct {
 	Timestamp *Timestamp `json:"timestamp"`
 }
 
+// NewMessage creates a new message with a fresh timestamp
 func NewMessage() *Message {
 	return &Message{Timestamp: NewTimestamp()}
 }
 
+// Save inserts a new message into MongoDB
 func (msg *Message) Save() error {
 	if err := messages.Insert(msg); err != nil {
 		return fmt.Errorf("Error creating new message: %v", err)

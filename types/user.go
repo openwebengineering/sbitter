@@ -9,15 +9,20 @@ import (
 	"log"
 )
 
+// TODO: Add Password, Email, etc later if this is going into
+// production
 type User struct {
 	Username  string     `json:"username"`
 	Timestamp *Timestamp `json:"timestamp"`
 }
 
+// String returns the user's username
 func (user *User) String() string {
 	return user.Username
 }
 
+// NewUser creates a new user with the given username and a fresh
+// timestamp
 func NewUser(username string) *User {
 	return &User{Username: username, Timestamp: NewTimestamp()}
 }
@@ -34,6 +39,7 @@ func (user *User) GetMessages(n int) (msgs []Message, err error) {
 	return
 }
 
+// Save inserts a new user into MongoDB
 func (user *User) Save() error {
 	if err := users.Insert(user); err != nil {
 		return fmt.Errorf("Error creating new user: %v", err)
