@@ -38,7 +38,7 @@ func init() {
 	db = session.DB(DATABASE_NAME)
 
 	// TODO: It doesn't seem like you should have to do this...
-	// Tell other packages about MongoDB session
+	// Tell other packages which Mongo database to use
 	helpers.SetDB(db)
 	types.SetDB(db)
 }
