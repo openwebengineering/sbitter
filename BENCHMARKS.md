@@ -1,5 +1,5 @@
 * Summary
-  * 10k Read-only Requests (100 concurrent, MongoDB in Strong mode (very safe))
+  * 10k Read-only Requests (100 concurrently, MongoDB in Strong mode (very safe))
     * 1-core Go, no caching
       * 380 req/sec
     * 1-core Go, Memcache
