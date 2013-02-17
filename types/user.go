@@ -6,11 +6,16 @@ package types
 import (
 	"fmt"
 	"labix.org/v2/mgo/bson"
+	"log"
 )
 
 type User struct {
 	Username  string     `json:"username"`
 	Timestamp *Timestamp `json:"timestamp"`
+}
+
+func (user *User) String() string {
+	return user.Username
 }
 
 func NewUser(username string) *User {
@@ -24,6 +29,7 @@ func (user *User) GetMessages(n int) (msgs []Message, err error) {
 		err = fmt.Errorf("Can't get messages for nil User")
 		return
 	}
+	log.Printf("Trying to get %d messages from user %s\n", n, user.Username)
 	err = messages.Find(bson.M{"username": user.Username}).Limit(n).All(&msgs)
 	return
 }
