@@ -7,7 +7,7 @@ Thank you to [Santa Barbara Makerspace](http://sbhackerspace.com) for
 creating this competition.
 
 
-## Benchmark Summary (see [BENCHMARKS.md](https://github.com/openwebengineering/sbitter/blob/master/BENCHMARKS.md) for details)
+## Benchmark Summary
 
 Setup: 10,000 read-only requests, 100 concurrently, with MongoDB in
 Strong mode (very safe).
@@ -22,3 +22,5 @@ Strong mode (very safe).
   * 2819 req/sec => 7.4x speedup from original due to parallelism
 * 6-core Go, Memcache
   * __7009__ req/sec => __18.4x__ speedup total
+
+See [BENCHMARKS.md](https://github.com/openwebengineering/sbitter/blob/master/BENCHMARKS.md) for details.
