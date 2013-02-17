@@ -10,20 +10,17 @@ import (
 )
 
 type Message struct {
-	Id         bson.ObjectId `json:"id"`
-	User       *User         `json:"user"`
-	Message    string        `json:"message"`
-	CreatedAt  time.Time     `json:"created_at"`
-	ModifiedAt time.Time     `json:"created_at"`
+	Id        bson.ObjectId `json:"id"`
+	User      *User         `json:"user"`
+	Message   string        `json:"message"`
+	CreatedAt time.Time     `json:"created_at"`
 }
 
 // NewMessage creates a new message with a fresh timestamp
 func NewMessage() *Message {
-	now := time.Now()
 	return &Message{
-		Id:         bson.NewObjectId(),
-		CreatedAt:  now,
-		ModifiedAt: now,
+		Id:        bson.NewObjectId(),
+		CreatedAt: time.Now(),
 	}
 }
 
