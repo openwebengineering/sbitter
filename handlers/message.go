@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"github.com/bradfitz/gomemcache/memcache"
 	"github.com/openwebengineering/sbitter/helpers"
 	"github.com/openwebengineering/sbitter/types"
 	"io/ioutil"
@@ -11,9 +12,24 @@ import (
 
 var (
 	DEBUG = true
+	mc *memcache.Client
 )
 
+func SetCache(mcClient *memcache.Client) {
+	mc = mcClient
+}
+
 func GetMessages(w http.ResponseWriter, r *http.Request) {
+	// Check memcache for messages first
+	username := r.URL.Query().Get(":username")
+	if item, err := mc.Get(username); err == nil {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(item.Value)
+		return
+	} else {
+		log.Printf("Memcache error after mc.Get: %v\n", err)
+	}
+
 	// Detect whose messages are being requested
 	user, err := helpers.UserFromRequest(r)
 	if err != nil {
@@ -31,6 +47,12 @@ func GetMessages(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	// Cache user messages
+	err = mc.Set(&memcache.Item{Key: username, Value: jsonMsgs})
+	if err != nil {
+		log.Printf("Error caching %s's msgs: %v\n", username, err)
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(jsonMsgs)
 }
