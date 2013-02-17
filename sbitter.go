@@ -12,6 +12,7 @@ import (
 	"labix.org/v2/mgo"
 	"log"
 	"net/http"
+	"runtime"
 	"time"
 )
 
@@ -68,6 +69,7 @@ func init() {
 }
 
 func main() {
+	runtime.GOMAXPROCS(runtime.NumCPU())
 	defer session.Close()
 	createUserIndex() // Only needs to be run once... ever. I think.
 
