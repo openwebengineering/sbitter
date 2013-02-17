@@ -22,8 +22,8 @@ const (
 
 var (
 	session *mgo.Session
-	db *mgo.Database
-	mux = pat.New()
+	db      *mgo.Database
+	mux     = pat.New()
 )
 
 // Connect to DB
@@ -54,6 +54,8 @@ func init() {
 
 func main() {
 	defer session.Close()
+	createUserIndex() // Only needs to be run once... ever. I think.
+
 	server := &http.Server{
 		Addr:           ":8080",
 		Handler:        mux,
@@ -63,4 +65,18 @@ func main() {
 	}
 	fmt.Printf("HTTP server listening on %s...\n", server.Addr)
 	server.ListenAndServe()
+}
+
+func createUserIndex() {
+	index := mgo.Index{
+		Key:        []string{"username"},
+		Unique:     true,
+		DropDups:   true,
+		Background: true, // See notes.
+		Sparse:     true,
+	}
+	err := db.C("users").EnsureIndex(index)
+	if err != nil {
+		log.Printf("Tried to create users index: %v\n", err)
+	}
 }
