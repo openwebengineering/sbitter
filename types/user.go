@@ -7,13 +7,15 @@ import (
 	"fmt"
 	"labix.org/v2/mgo/bson"
 	"log"
+	"time"
 )
 
 // TODO: Add Password, Email, etc later if this is going into
 // production
 type User struct {
-	Username  string     `json:"username"`
-	Timestamp *Timestamp `json:"timestamp"`
+	Username   string    `json:"username"`
+	CreatedAt  time.Time `json:"created_at"`
+	ModifiedAt time.Time `json:"modified_at"`
 }
 
 // String returns the user's username
@@ -24,7 +26,12 @@ func (user *User) String() string {
 // NewUser creates a new user with the given username and a fresh
 // timestamp
 func NewUser(username string) *User {
-	return &User{Username: username, Timestamp: NewTimestamp()}
+	now := time.Now()
+	return &User{
+		Username:   username,
+		CreatedAt:  now,
+		ModifiedAt: now,
+	}
 }
 
 // GetMessages gets user's latest numMsg messages in

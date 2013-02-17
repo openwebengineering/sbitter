@@ -5,17 +5,23 @@ package types
 
 import (
 	"fmt"
+	"time"
 )
 
 type Message struct {
-	User      *User      `json:"user"`
-	Message   string     `json:"message"`
-	Timestamp *Timestamp `json:"timestamp"`
+	User       *User     `json:"user"`
+	Message    string    `json:"message"`
+	CreatedAt  time.Time `json:"created_at"`
+	ModifiedAt time.Time `json:"modified_at"`
 }
 
 // NewMessage creates a new message with a fresh timestamp
 func NewMessage() *Message {
-	return &Message{Timestamp: NewTimestamp()}
+	now := time.Now()
+	return &Message{
+		CreatedAt:  now,
+		ModifiedAt: now,
+	}
 }
 
 // Save inserts a new message into MongoDB
