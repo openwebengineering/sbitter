@@ -7,9 +7,7 @@ Thank you to [Santa Barbara Makerspace](http://sbhackerspace.com) for
 creating this competition.
 
 
-## Benchmark Summary (see
-   [BENCHMARKS.md](https://github.com/openwebengineering/sbitter/blob/master/BENCHMARKS.md)
-   for details)
+## Benchmark Summary (see [BENCHMARKS.md](https://github.com/openwebengineering/sbitter/blob/master/BENCHMARKS.md) for details)
 
 Setup: 10,000 read-only requests, 100 concurrently, with MongoDB in
 Strong mode (very safe).
