@@ -21,4 +21,4 @@ Strong mode (very safe).
 * 6-core Go, no caching
   * 2819 req/sec (7.4x speedup from original due to parallelism)
 * 6-core Go, Memcache
-  * __7009__ req/sec (18.4x speedup from using both combined)
+  * __7009__ req/sec (__18.4x__ speedup total)
