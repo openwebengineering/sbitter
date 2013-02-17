@@ -11,3 +11,5 @@ creating this competition.
 ## TODO
 
 * Add auth
+
+* Add "id" field to Messages JSON
