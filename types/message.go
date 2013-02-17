@@ -16,7 +16,7 @@ type Message struct {
 	CreatedAt time.Time     `json:"created_at"`
 }
 
-// NewMessage creates a new message with a fresh timestamp
+// NewMessage creates a new message with a new Id and fresh timestamp
 func NewMessage() *Message {
 	return &Message{
 		Id:        bson.NewObjectId(),

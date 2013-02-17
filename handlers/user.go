@@ -33,7 +33,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Return new User to user as JSON
+	// Return new User to user as JSON. Re-use `body` for efficiency
 	if err = json.Unmarshal(body, u); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
