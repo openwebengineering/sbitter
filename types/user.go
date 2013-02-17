@@ -24,7 +24,7 @@ func (user *User) GetMessages(n int) (msgs []Message, err error) {
 		err = fmt.Errorf("Can't get messages for nil User")
 		return
 	}
-	err = messages.Find(bson.M{"username": user.Username}).Limit(n).All(msgs)
+	err = messages.Find(bson.M{"username": user.Username}).Limit(n).All(&msgs)
 	return
 }
 
