@@ -4,7 +4,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/bmizerany/pat"
 	"github.com/openwebengineering/sbitter/handlers"
 	"github.com/openwebengineering/sbitter/helpers"
@@ -63,8 +62,10 @@ func main() {
 		WriteTimeout:   30 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
-	fmt.Printf("HTTP server listening on %s...\n", server.Addr)
-	server.ListenAndServe()
+	log.Printf("HTTP server trying to listen on %s...\n", server.Addr)
+	if err := server.ListenAndServe(); err != nil {
+		log.Printf("HTTP listen failed: %v\n", err)
+	}
 }
 
 func createUserIndex() {
