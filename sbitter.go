@@ -46,8 +46,10 @@ func init() {
 
 // Define routes
 func init() {
+	mux.Get("/", http.HandlerFunc(handlers.GetIndex))
+	mux.Post("/user", http.HandlerFunc(handlers.CreateUser))
 	mux.Get("/user/:username", http.HandlerFunc(handlers.GetMessages))
-	mux.Post("/user/:username", http.HandlerFunc(handlers.PostMessage))
+	mux.Post("/user/:username", http.HandlerFunc(handlers.CreateMessage))
 }
 
 func main() {
