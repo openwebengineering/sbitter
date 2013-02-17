@@ -52,7 +52,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Return new User to user as JSON
-	if err = json.Unmarshal(body, &u); err != nil {
+	if err = json.Unmarshal(body, u); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -104,14 +104,16 @@ func CreateMessage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer r.Body.Close()
+	if DEBUG { log.Printf("CreateMessage: body == %s\n", body) }
 
 	// Unmarshal JSON body
 	msg := types.NewMessage()
-	if err = json.Unmarshal(body, &msg); err != nil {
+	if err = json.Unmarshal(body, msg); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	msg.User = user
+	if DEBUG { log.Printf("msg == %+v\n", msg) }
 
 	// Save new Message to DB
 	if err = msg.Save(); err != nil {
