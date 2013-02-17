@@ -8,8 +8,8 @@ import (
 )
 
 type Message struct {
-	User      *User  `json:"user"`
-	Message   string `json:"message"`
+	User      *User      `json:"user"`
+	Message   string     `json:"message"`
 	Timestamp *Timestamp `json:"timestamp"`
 }
 
