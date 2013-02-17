@@ -14,8 +14,8 @@ import (
 // production
 type User struct {
 	Username   string    `json:"username"`
-	CreatedAt  time.Time `json:"created_at"`
-	ModifiedAt time.Time `json:"modified_at"`
+	CreatedAt  time.Time `json:"-"`
+	ModifiedAt time.Time `json:"-"`
 }
 
 // String returns the user's username
