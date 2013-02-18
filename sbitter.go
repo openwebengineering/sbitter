@@ -50,11 +50,6 @@ func init() {
 // Connect to cache
 func init() {
 	mc = memcache.New(MEMCACHE_URLS)
-	log.Printf("Deleting elimisteve's cache...\n")
-	err := mc.Delete("elimisteve")
-	if err != nil {
-		log.Printf("Error deleting elimisteve's cache: %v\n", err)
-	}
 	handlers.SetCache(mc)
 }
 
