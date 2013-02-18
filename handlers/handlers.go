@@ -4,12 +4,12 @@
 package handlers
 
 import (
-	"io"
+	"fmt"
 	"net/http"
 )
 
 func GetIndex(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, INDEX_WELCOME_MSG)
+	fmt.Fprintf(w, INDEX_WELCOME_MSG, r.Host, r.Host, r.Host)
 }
 
 var INDEX_WELCOME_MSG = `Welcome to OpenWeb's SBitter homepage!
@@ -17,15 +17,15 @@ var INDEX_WELCOME_MSG = `Welcome to OpenWeb's SBitter homepage!
 
 == Create New User
 
-    curl -X POST -H "Content-Type: application/json" -d '{"username": "MY_USERNAME"}' http://localhost:8080/user
+    curl -X POST -H "Content-Type: application/json" -d '{"username": "MY_USERNAME"}' http://%s/user
 
 
 == Create New Message
 
-    curl -X POST -H "Content-Type: application/json" -d '{"message": "New message"}' http://localhost:8080/user/MY_USERNAME
+    curl -X POST -H "Content-Type: application/json" -d '{"message": "New message"}' http://%s/user/MY_USERNAME
 
 
 == Get User's Recent Messages
 
-    curl http://localhost:8080/user/MY_USERNAME
+    curl http://%s/user/MY_USERNAME
 `
