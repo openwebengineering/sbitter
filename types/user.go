@@ -42,7 +42,11 @@ func (user *User) GetMessages(n int) (msgs []Message, err error) {
 		return
 	}
 	log.Printf("Trying to get %d messages from user %s\n", n, user.Username)
-	err = messages.Find(bson.M{"user": user}).Limit(n).All(&msgs)
+	err = messages.
+		Find(bson.M{"user": user}).
+		Sort("-createdat").
+		Limit(n).
+		All(&msgs)
 	return
 }
 
