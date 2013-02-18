@@ -13,6 +13,7 @@ programming competition.
 Setup: 10,000 read-only requests, 100 concurrently, with MongoDB in
 Strong mode (very safe).
 
+
 ### Results
 
 * 1-core Go, no caching
