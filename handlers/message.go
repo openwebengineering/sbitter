@@ -48,7 +48,7 @@ func GetMessages(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// Cache user messages
-	err = mc.Set(&memcache.Item{Key: username, Value: jsonMsgs})
+	err = mc.Set(&memcache.Item{Key: username, Value: jsonMsgs, Expiration: 30})
 	if err != nil {
 		log.Printf("Error caching %s's msgs: %v\n", username, err)
 	}
