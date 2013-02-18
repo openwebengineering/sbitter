@@ -20,7 +20,6 @@ const (
 	MONGO_URLS       = "localhost"
 	DATABASE_NAME    = "sbitter"
 	MEMCACHE_URLS    = "localhost:11211"
-	MEMCACHE_TIMEOUT = 30 * time.Second
 )
 
 var (
@@ -51,7 +50,6 @@ func init() {
 // Connect to cache
 func init() {
 	mc = memcache.New(MEMCACHE_URLS)
-	mc.Timeout = MEMCACHE_TIMEOUT
 	log.Printf("Deleting elimisteve's cache...\n")
 	err := mc.Delete("elimisteve")
 	if err != nil {
