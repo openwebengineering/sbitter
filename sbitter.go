@@ -17,9 +17,9 @@ import (
 )
 
 const (
-	MONGO_URLS       = "localhost"
-	DATABASE_NAME    = "sbitter"
-	MEMCACHE_URLS    = "localhost:11211"
+	MONGO_URLS    = "localhost"
+	DATABASE_NAME = "sbitter"
+	MEMCACHE_URLS = "localhost:11211"
 )
 
 var (
