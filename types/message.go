@@ -10,7 +10,7 @@ import (
 )
 
 type Message struct {
-	Id        bson.ObjectId `json:"id"`
+	Id        bson.ObjectId `json:"id" bson:"_id"`
 	User      *User         `json:"user"`
 	Message   string        `json:"message"`
 	CreatedAt time.Time     `json:"created_at"`
