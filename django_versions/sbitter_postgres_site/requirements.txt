@@ -1,0 +1,5 @@
+Django==1.4.5
+South==0.7.6
+argparse==1.2.1
+django-tagging==0.3.1
+wsgiref==0.1.2
