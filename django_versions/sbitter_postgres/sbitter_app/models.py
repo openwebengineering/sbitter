@@ -20,4 +20,4 @@ class Sbit(Base):
     message = models.CharField(max_length=140)
 
     def __unicode__(self):
-        return self.user.username + " sayed " + self.message
+        return self.user.username + " said " + self.message

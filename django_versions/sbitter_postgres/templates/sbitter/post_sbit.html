@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block meta_description %}{% endblock %}
+
+{% block extra_head %}{% endblock %}
+
+{% block content %}
+<div class="row">
+<div class="">
+<form class="form" action="{% url post_sbit %}" method="post" enctype="multipart/form-data">
+    {{ form.as_ul }}
+    {% csrf_token %}
+    <input class="btn" type="submit" value="Submit" />
+</form>
+</div>
+</div>
+{% endblock %}
+
+{% block javascript %}{% endblock %}

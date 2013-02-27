@@ -6,4 +6,12 @@ from django import forms
 from tagging.fields import TagField
 from sbitter_app.models import *
 
-import datetime, os
+import datetime
+import os
+
+class SbitForm(forms.ModelForm):
+    message = forms.CharField(label="Message")
+
+    class Meta:
+        model = Sbit
+        fields = ("message")

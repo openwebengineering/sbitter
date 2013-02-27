@@ -17,14 +17,32 @@ from sbitter_app.model_forms import *
 from sbitter_app.forms import *
 
 def index(request):
-    return render(request, "index.html", locals())
+    return render(request, "public/index.html", locals())
 
 @login_required
 def view_my_sbits(request):
     user = User.objects.get(user=request.user)
     sbits = Sbit.objects.filter(user=user).order_by('-created_at')
-    return render(request, 'sbits_list.html', locals())
+    return render(request, 'sbitter/sbits_list.html', locals())
 
 def view_all_sbits(request):
     sbits = Sbit.objects.all().values('user', 'message', 'created_at')
-    return render(request, 'sbits_list.html', locals())
+    return render(request, 'sbitter/sbits_list.html', locals())
+
+@login_required
+def post_sbit(request):
+    if request.methond == 'POST':
+        form = SbitForm(request.POST)
+        if form.is_valid():
+            sbit = form.save(commit=False)
+            sbit.user = request.user
+            sbit.save()
+            messages.success(request, 'New Sbit Added')
+            return redirect('index')
+        else:
+            for field in form:
+                for error in field.errors:
+                    pass
+    else:
+        form = SbitForm()
+    return render(request, 'sbitter/post_sbit.html', {'form': form})
