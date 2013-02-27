@@ -12,13 +12,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {# TODO: <link rel="shortcut icon" href="/media/images/favicon.ico" /> #}
     {# TODO: <link rel="apple-touch-icon" href="/media/images/apple-touch-icon.png" /> #}
-    <link type="text/css" rel="stylesheet" href="/media/css/bootstrap.min.css" charset="utf-8">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
     <style>
       body {
         padding-top: 60px; /* to make the container go all the way to the bottom of the topbar (It should be 60px) */
       }
-    </style>
-    <link type="text/css" rel="stylesheet" href="/media/css/bootstrap-responsive.min.css" charset="utf-8">
+  </style>
     <link type="text/css" rel="stylesheet" href="/media/css/style.css" charset="utf-8"/>
    <!--[if gte IE 9]>
   <style type="text/css">
@@ -28,7 +27,6 @@
   </style>
     <![endif]-->
     {% block extra_head %}{% endblock %}
-    <script src="/media/js/modernizr-2.5.3.min.js"></script>
 </head>
 
 <body class="body">
@@ -65,10 +63,6 @@
         {% endfor %}
         </div>
     {% endif %}
-    <!-- PROMPT IE 6 USERS TO INSTALL CHROME FRAME. REMOVE THIS IF YOU SUPPORT IE 6.
-    chromium.org/developers/how-tos/chrome-frame-getting-started -->
-    <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-    <!--Block Content-->
     {% block content %}{% endblock %}
     <!----End Block---->
         <div class="row">
@@ -84,19 +78,10 @@
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="/media/js/libs/jquery-1.7.2.min.js"><\/script>')</script>
-    <script src="/media/js/bootstrap.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
     {% block javascript %}{% endblock %}
-    
-    <!-- <script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script> -->
-
 </body>
 </html>
 
