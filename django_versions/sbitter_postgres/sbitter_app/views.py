@@ -47,6 +47,7 @@ def post_sbit(request):
         form = SbitForm()
     return render(request, 'sbitter/post_sbit.html', {'form': form})
 
+@csrf_exempt
 def post_sbit_json(request):
     if request.methond == 'POST':
         try:
@@ -55,6 +56,7 @@ def post_sbit_json(request):
             message = data['message']
             user = User.objects.get(username=username)
             sbit = Sbit(user=user,message=message)
+            sbit.save()
         except KeyError:
             HttpResponseServerError("Malformed data!")
         return HttpResponse("Got JSON data")
