@@ -6,9 +6,9 @@ package main
 import (
 	"github.com/bmizerany/pat"
 	"github.com/bradfitz/gomemcache/memcache"
-	"github.com/openwebengineering/sbitter/handlers"
-	"github.com/openwebengineering/sbitter/helpers"
-	"github.com/openwebengineering/sbitter/types"
+	"github.com/openwebengineering/sbitter/go/handlers"
+	"github.com/openwebengineering/sbitter/go/helpers"
+	"github.com/openwebengineering/sbitter/go/types"
 	"labix.org/v2/mgo"
 	"log"
 	"net/http"

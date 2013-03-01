@@ -4,7 +4,7 @@
 package helpers
 
 import (
-	"github.com/openwebengineering/sbitter/types"
+	"github.com/openwebengineering/sbitter/go/types"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
 	"net/http"

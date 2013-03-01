@@ -3,8 +3,8 @@ package handlers
 import (
 	"encoding/json"
 	"github.com/bradfitz/gomemcache/memcache"
-	"github.com/openwebengineering/sbitter/helpers"
-	"github.com/openwebengineering/sbitter/types"
+	"github.com/openwebengineering/sbitter/go/helpers"
+	"github.com/openwebengineering/sbitter/go/types"
 	"io/ioutil"
 	"log"
 	"net/http"

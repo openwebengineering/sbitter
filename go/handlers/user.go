@@ -3,7 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/openwebengineering/sbitter/types"
+	"github.com/openwebengineering/sbitter/go/types"
 	"io/ioutil"
 	"net/http"
 )
