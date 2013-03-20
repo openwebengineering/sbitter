@@ -32,7 +32,8 @@ if __name__ == '__main__':
     print "POSTing sbits. This may take a while...\n"
     start_time = time.time()
     for sbit in sbits:
-        r = requests.post('http://localhost:8000/post_sbit_json/', data=sbit)
+        r = requests.post('http://sbitterpy.openwebengineering.com/post_sbit_json/',
+                          data=sbit)
         if r.status_code != 200:
             print "Something went wrong...\n"
             print r.status_code
