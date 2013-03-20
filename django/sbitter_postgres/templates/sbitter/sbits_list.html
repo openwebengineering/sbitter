@@ -2,10 +2,9 @@
 {% block content %}
 
 <br />
-<h2>... said...</h2>
 <ul>
 {% for sbit in sbits %}
-	<li>{{ sbit.message }}</li>
+<li>{{sbit.user}} said {{ sbit.message }}</li>
 {% endfor %}
 </ul>
 <br />

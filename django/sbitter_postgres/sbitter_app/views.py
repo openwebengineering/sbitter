@@ -28,8 +28,8 @@ def view_my_sbits(request):
     return render(request, 'sbitter/sbits_list.html', locals())
 
 def view_all_sbits(request):
-    sbits = Sbit.objects.all().values('message')
-#    sbits = Sbit.objects.all()
+#    sbits = Sbit.objects.all().values('message')
+    sbits = Sbit.objects.all()
     return render(request, 'sbitter/sbits_list.html', locals())
 
 @login_required
