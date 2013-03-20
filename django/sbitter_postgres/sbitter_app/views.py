@@ -12,6 +12,8 @@ from django.shortcuts import render_to_response, get_object_or_404, render, \
 from django.template import loader, RequestContext
 from django.views.decorators.csrf import csrf_exempt
 
+import json
+
 from sbitter_app.models import *
 from sbitter_app.model_forms import *
 from sbitter_app.forms import *
@@ -49,7 +51,7 @@ def post_sbit(request):
 
 @csrf_exempt
 def post_sbit_json(request):
-    if request.methond == 'POST':
+    if request.method == 'POST':
         try:
             data = json.loads(request.raw_post_data)
             username = data['user']
@@ -59,4 +61,4 @@ def post_sbit_json(request):
             sbit.save()
         except KeyError:
             HttpResponseServerError("Malformed data!")
-        return HttpResponse("Got JSON data")
+        return HttpResponse("Got JSON data\n")

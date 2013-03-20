@@ -14,4 +14,4 @@ class SbitForm(forms.ModelForm):
 
     class Meta:
         model = Sbit
-        fields = ("message")
+        fields = ("message",)
