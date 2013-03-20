@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>{{ greeting }}</h2>
 <br />
-<h3>{{ user.username }} said...</h3>
+<h2>... said...</h2>
 <ul>
 {% for sbit in sbits %}
-    <li>{{ sbit.message }}</li>
+	<li>{{ sbit.message }}</li>
 {% endfor %}
 </ul>
 <br />

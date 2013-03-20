@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.contrib.auth.views import login, logout
+from django.conf import settings
 
 urlpatterns = patterns('sbitter_app.views',
     url(r'^$', 'index', name='index'),
@@ -11,6 +12,9 @@ urlpatterns = patterns('sbitter_app.views',
         name='logout'),
     ####
     url(r'^post_sbit/$', 'post_sbit', name='post_sbit'),
-    url(r'^post_sbit_json/$', 'post_sbit_json',
-        name='post_sbit_json'),
 )
+#Make sure _not_ to have the JSON POST Sbit view be available in production...
+if settings.DEBUG:
+    urlpatterns += patterns('sbitter_app.views',
+    url(r'^post_sbit_json/$', 'post_sbit_json',
+        name='post_sbit_json'))
