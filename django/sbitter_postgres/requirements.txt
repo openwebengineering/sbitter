@@ -1,7 +1,8 @@
 Django==1.4.5
 South==0.7.6
-argparse==1.2.1
 django-tagging==0.3.1
+ipython==0.13.1
 psycopg2==2.4.6
 python-memcached==1.48
-wsgiref==0.1.2
+requests==1.1.0
+uWSGI==1.9
