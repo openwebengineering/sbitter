@@ -7,7 +7,7 @@ scalable web applications as part of
 [SBitter](https://github.com/sbhackerspace/sbhx-sbitter#sbitter)
 programming competition.
 
-Go version: [![Build Status](https://drone.io/github.com/openwebengineering/sbitter/status.png)](https://drone.io/github.com/openwebengineering/sbitter/latest)
+[![Build Status](https://drone.io/github.com/openwebengineering/sbitter/status.png)](https://drone.io/github.com/openwebengineering/sbitter/latest) (Go version)
 
 ## Benchmark Summary
 
